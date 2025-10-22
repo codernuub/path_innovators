@@ -8,12 +8,16 @@ import Section from "@/components/Section";
 
 import Banner1Image from "@/assets/banner-1.jpg";
 import AboutImage from "@/assets/about.png";
+import Quote from "@/components/Quote";
+import HistorySection from "@/components/HistorySection";
+import Milestones from "@/components/Milestones";
+import VisionSection from "@/components/Vision";
 
 export default function Home() {
   return (
     <Fragment>
       <Head>
-        <title>Home | Kisan Hit Nursery</title>
+        <title>Home | Path Innovator</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -50,14 +54,43 @@ excellence, we are committed to
 transforming industries and pushing the
 boundaries of what is possible.
 `,
-`At Path InNoVaToRs, we thrive on
+          `At Path InNoVaToRs, we thrive on
 delivering unique concepts, innovative
 ideas, and outstanding quality service.`,
-]}
+        ]}
         image={AboutImage} // replace with your image path
         buttonText="Read More"
         link="/about"
       />
+      <VisionSection
+        heading="Our Vision"
+        subheading="EMPOWERING INDIVIDUALS AND BUSINESSES WITH INNOVATIVE SOLUTIONS"
+        description="At Path InNoVaToRs, our vision is to be the premier provider of innovative
+solutions that cater to the diverse requirements and needs of individuals and
+businesses. We are committed to making a positive impact by helping our
+clients overcome challenges and achieve remarkable success."
+        points={[
+          "Addressing Diverse Needs: We are dedicated to catering to the diverse requirements and needs of individuals and businesses across various industries and sectors.",
+          "Positive Impact: Our goal is to make a positive impact in the lives of our clients and their stakeholders by providing innovative solutions that drive growth and success.",
+          "Go-To Source: We aim to become the go-to source for our clients, offering them innovative ideas and solutions that set them apart from the competition.",
+          "Understanding Challenges: By deeply understanding the challenges faced by our clients, we can develop tailored strategies and solutions to help them overcome obstacles and achieve remarkable results.",
+        ]}
+      />
+
+      <Quote
+        quote="“The Golden Rule For Every 
+          Business Man is — Put yourself
+         in your Customer's Place.”"
+      />
+
+      <HistorySection />
+
+      <Quote
+        quote="“Success Isn't Just About What You
+Accomplish In Your Life,It's About
+What You Inspire Others To Do.”"
+      />
+      <Milestones />
     </Fragment>
   );
 }

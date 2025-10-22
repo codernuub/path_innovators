@@ -36,7 +36,7 @@ useEffect(() => {
       {isVisible && (
         <motion.button
           onClick={scrollToTop}
-          className="w-fit fixed bottom-14 right-5 lg:bottom-5 z-50 bg-main text-white p-4 rounded-full shadow-2xl hover:bg-green-700 transition"
+          className="w-fit fixed bottom-14 right-5 lg:bottom-5 z-50 bg-blue-600 text-white p-4 rounded-full shadow-2xl hover:bg-green-700 transition"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
         >
