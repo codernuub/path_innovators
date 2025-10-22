@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  scroll-behavior: smooth;
+}
+
+* {
+  scroll-behavior: smooth;
+  font-family: var(--font-lexend);
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+.container {
+  max-width: 1400px;
+  margin: auto;
+}
