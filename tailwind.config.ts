@@ -15,7 +15,8 @@ const config: Config = {
         lexend:["var(--font-lexend)", "sans-serif"]
       },
       colors:{
-        main:"#009900"
+        main:"#009900",
+        secondary:"#0E1A2B"
       }
     },
   },

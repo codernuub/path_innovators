@@ -4,7 +4,7 @@ import Head from "next/head";
 import { motion } from "framer-motion";
 
 import Banner from "@/components/Banner";
-import Section from "@/components/Section";
+import Section from "@/components/About";
 
 import Banner1Image from "@/assets/banner-1.jpg";
 import AboutImage from "@/assets/about.png";
@@ -12,6 +12,9 @@ import Quote from "@/components/Quote";
 import HistorySection from "@/components/HistorySection";
 import Milestones from "@/components/Milestones";
 import VisionSection from "@/components/Vision";
+
+import VisionImage from "@/assets/vision.png";
+import MissionImage from "@/assets/misson.png"
 
 export default function Home() {
   return (
@@ -44,6 +47,7 @@ export default function Home() {
           </motion.p>
         </div>
       </Banner>
+
       <Section
         title="About"
         paras={[
@@ -62,7 +66,16 @@ ideas, and outstanding quality service.`,
         buttonText="Read More"
         link="/about"
       />
+      <Quote
+        quote="“The Golden Rule For Every 
+          Business Man is — Put yourself
+         in your Customer's Place.”"
+      />
       <VisionSection
+        className={{
+          container: "bg-secondary text-white",
+        }}
+        image={VisionImage}
         heading="Our Vision"
         subheading="EMPOWERING INDIVIDUALS AND BUSINESSES WITH INNOVATIVE SOLUTIONS"
         description="At Path InNoVaToRs, our vision is to be the premier provider of innovative
@@ -70,19 +83,71 @@ solutions that cater to the diverse requirements and needs of individuals and
 businesses. We are committed to making a positive impact by helping our
 clients overcome challenges and achieve remarkable success."
         points={[
-          "Addressing Diverse Needs: We are dedicated to catering to the diverse requirements and needs of individuals and businesses across various industries and sectors.",
-          "Positive Impact: Our goal is to make a positive impact in the lives of our clients and their stakeholders by providing innovative solutions that drive growth and success.",
-          "Go-To Source: We aim to become the go-to source for our clients, offering them innovative ideas and solutions that set them apart from the competition.",
-          "Understanding Challenges: By deeply understanding the challenges faced by our clients, we can develop tailored strategies and solutions to help them overcome obstacles and achieve remarkable results.",
+          {
+            title: "Addressing Diverse Needs",
+            description: `We are dedicated to catering to the diverse requirements and needs of individuals and businesses across various industries and sectors.`,
+          },
+          {
+            title: "Positive Impact",
+            description: `Our goal is to make a positive impact in the lives of our clients and their stakeholders by providing innovative solutions that drive growth and success.`,
+          },
+          {
+            title: "Go-To Source",
+            description: `We aim to become the go-to source for our clients, offering them innovative ideas and solutions that set them apart from the competition.`,
+          },
+          {
+            title: "Understanding Challenges",
+            description: `By deeply understanding the challenges faced by our clients, we can develop tailored strategies and solutions to help them overcome obstacles and achieve remarkable results.`,
+          },
         ]}
       />
-
-      <Quote
-        quote="“The Golden Rule For Every 
-          Business Man is — Put yourself
-         in your Customer's Place.”"
+      <VisionSection
+        className={{
+          container: "text-secondary",
+          body: "lg:!flex-row-reverse",
+          para: "text-secondary",
+          li: {
+            container: "bg-secondary/10",
+          },
+        }}
+         image={MissionImage}
+        heading="Our Mission"
+        subheading="DELIVERING EXCEPTIONAL QUALITY SERVICE AND
+EMPOWERING SUCCESS"
+        description="Our mission at Path InNoVaToRs is to deliver exceptional quality service and
+empower our clients to achieve their goals. We are dedicated to providing
+innovative solutions that are responsive to the ever-changing business
+landscape. As service providers, we bring a wealth of expertise and a
+customer-centric approach to ensure that our clients receive the best
+possible service"
+        points={[
+          {
+            title: "Exceptional Quality Service",
+            description:
+              "We are committed to delivering exceptional quality service that goes above and beyond client expectations.",
+          },
+          {
+            title: "Innovative Solutions",
+            description:
+              "Our mission is to develop and implement innovative ideas and solutions that address the unique needs and challenges of our clients.",
+          },
+          {
+            title: "Adapting to Change",
+            description:
+              "We stay responsive to the ever-changing business landscape, continuously adapting our services to meet evolving industry trends and emerging technologies.",
+          },
+          {
+            title: "Customer-Centric Approach",
+            description:
+              "Our approach is customer-centric, ensuring that our clients receive personalized attention and tailored solutions that align with their objectives.",
+          },
+          {
+            title: "Empowering Success",
+            description:
+              "We are dedicated to empowering our clients to achieve their goals and reach new heights of success through our expertise and support.",
+          },
+        ]}
       />
-
       <HistorySection />
 
       <Quote
