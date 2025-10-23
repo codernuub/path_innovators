@@ -44,6 +44,7 @@ export const values = [
 export default function OurValues() {
   return (
     <Values
+ className={{container:"!bg-gray-50 "}}
       heading="OUR VALUES"
       description={`At our company, we embrace core values that define who we are: Integrity, Innovation, and Excellence.
           We uphold honesty and transparency, foster trust with our clients, and strive to lead the industry forward.`}

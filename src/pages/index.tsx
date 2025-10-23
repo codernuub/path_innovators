@@ -16,6 +16,7 @@ import VisionImage from "@/assets/vision.png";
 import MissionImage from "@/assets/misson.png"
 import CompanyValues from "@/components/CompanyValues";
 import OurValues from "@/components/OurValues";
+import OurServices from "@/components/Services";
 
 export default function Home() {
   return (
@@ -82,6 +83,7 @@ export default function Home() {
       />
       
       <CompanyValues/>
+      <OurServices/>
       <VisionSection
         className={{
           container: "bg-secondary text-white",

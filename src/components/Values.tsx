@@ -1,23 +1,30 @@
 import { motion } from "framer-motion";
+import { PropsWithChildren } from "react";
+import { MainSection } from "./Main";
 
-export default function Values({
-  heading,
-  description,
-  values,
-}: {
+interface SectionProps extends PropsWithChildren {
   heading: string;
   description: string;
-  values: {
+  values?: {
     title: string;
     description: string;
     icon: JSX.Element;
     color: string;
     textColor: string;
   }[];
-}) {
+  className?:{container?:string}
+}
+
+export default function Values({
+  heading,
+  description,
+  values,
+  children,
+  className
+}: SectionProps) {
   return (
-    <section className="w-full py-20 bg-gray-50">
-      <div className="max-w-6xl mx-auto text-center px-8 lg:px-0">
+    <MainSection className={{container:`${className?.container}`}}>
+      <div className="max-w-6xl mx-auto text-center px-4 lg:px-0">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -38,7 +45,7 @@ export default function Values({
         </motion.p>
 
         {/* FLEX CENTERED CARDS */}
-        <div className="flex flex-wrap justify-center gap-8">
+       {values ? <div className="flex flex-wrap justify-center gap-8">
           {values.map((value, index) => (
             <motion.div
               key={value.title}
@@ -62,8 +69,9 @@ export default function Values({
               </p>
             </motion.div>
           ))}
-        </div>
+        </div>:null}
+        {children}
       </div>
-    </section>
+    </MainSection>
   );
 }
