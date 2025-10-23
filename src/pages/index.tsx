@@ -3,10 +3,9 @@ import Head from "next/head";
 
 import { motion } from "framer-motion";
 
-import Banner from "@/components/Banner";
-import Section from "@/components/About";
+import { VideoBanner } from "@/components/Banner";
 
-import Banner1Image from "@/assets/banner-1.jpg";
+import Banner1Image from "@/assets/banner/banner.mp4";
 import AboutImage from "@/assets/about.png";
 import Quote from "@/components/Quote";
 import HistorySection from "@/components/HistorySection";
@@ -15,6 +14,8 @@ import VisionSection from "@/components/Vision";
 
 import VisionImage from "@/assets/vision.png";
 import MissionImage from "@/assets/misson.png"
+import CompanyValues from "@/components/CompanyValues";
+import OurValues from "@/components/OurValues";
 
 export default function Home() {
   return (
@@ -24,56 +25,65 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Banner image={Banner1Image} title="Kisan Hit Nursery">
-        <div className="w-fit text-center m-auto p-5 lg:p-24 text-white">
+      <VideoBanner image={Banner1Image} title="">
+        <div className="absolute inset-0 z-40 flex justify-start mt-auto h-fit">
+        <div className="text-left px-5 py-8 lg:p-24">
           <motion.h1
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: -40 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true }}
-            className="text-[2rem] lg:text-[4rem] font-bold leading-[104%]"
+            className="text-[2.2rem] md:text-[2.5rem] uppercase lg:text-[4rem] xl:text-[5rem] font-bold text-white leading-tight drop-shadow-lg"
           >
-            Path InNoVaTors
+            Path <span className="text-blue-600">InNoVaTors</span>
           </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            viewport={{ once: true }}
-            className="font-[600] italic text-[1rem] lg:text-[2rem] leading-[104%] mt-1"
-          >
-            Where innovation meets excellence
-          </motion.p>
-        </div>
-      </Banner>
+          {/*<Link href="/">
+            <Image
+              src={LogoImage}
+              className="w-[180px] lg:w-[300px] hover:scale-105 transition-transform duration-300"
+              alt="Path Innovators"
+            />
+          </Link>*/}
 
-      <Section
-        title="About"
-        paras={[
-          `Path InNoVaToRs is a dynamic company
-that was founded in June 2019. With a
-passion for innovation and a drive for
-excellence, we are committed to
-transforming industries and pushing the
-boundaries of what is possible.
-`,
-          `At Path InNoVaToRs, we thrive on
-delivering unique concepts, innovative
-ideas, and outstanding quality service.`,
-        ]}
-        image={AboutImage} // replace with your image path
-        buttonText="Read More"
-        link="/about"
+          <motion.p
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            className="italic text-[1.25rem] lg:text-[2rem] max-w-3xl text-white"
+          >
+            Where <span className="underline">innovation</span> meets <span className="underline">excellence</span>
+          </motion.p>
+        
+        </div>
+      </div>
+      </VideoBanner>
+
+      <VisionSection
+        heading="About Us"
+         className={{
+          container: "text-secondary",
+          para: "text-secondary",
+          rightBody:"my-auto",
+          li: {
+            container: "!bg-secondary/10",
+          },
+        }}
+        subheading="Driving innovation, delivering excellence, shaping the future."
+        description={`Path InNoVaToRs is a dynamic company founded on innovation and excellence. We turn bold ideas into impactful solutions that help our clients stand out and achieve remarkable success. Our team of creative thinkers and industry experts delivers cutting-edge strategies, innovative concepts, and top-quality service tailored to your needs. With a focus on growth, creativity, and results, we don’t just meet expectations—we exceed them. At Path InNoVaToRs, our clients are more than partners—they’re our cherished diamonds. Together, we transform industries, push boundaries, and shape the future with innovative solutions.`}
+        image={AboutImage}
+        points={[]}
       />
       <Quote
         quote="“The Golden Rule For Every 
           Business Man is — Put yourself
          in your Customer's Place.”"
       />
+      
+      <CompanyValues/>
       <VisionSection
         className={{
           container: "bg-secondary text-white",
+          body: "lg:!flex-row-reverse",
         }}
         image={VisionImage}
         heading="Our Vision"
@@ -101,13 +111,14 @@ clients overcome challenges and achieve remarkable success."
           },
         ]}
       />
+      
+      <OurValues/>
       <VisionSection
         className={{
           container: "text-secondary",
-          body: "lg:!flex-row-reverse",
           para: "text-secondary",
           li: {
-            container: "bg-secondary/10",
+            container: "!bg-secondary/10",
           },
         }}
          image={MissionImage}

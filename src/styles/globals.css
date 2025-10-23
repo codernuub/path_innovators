@@ -19,3 +19,26 @@ body {
   max-width: 1400px;
   margin: auto;
 }
+
+/* global.css or a dedicated css file */
+.shine-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.4) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: skewX(-20deg);
+  animation: shine 2s linear infinite;
+}

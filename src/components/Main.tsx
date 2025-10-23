@@ -8,7 +8,7 @@ interface MainSectionProps extends PropsWithChildren {
 }
 export function MainSection({className, children}:MainSectionProps) {
   return (
-    <section className={`w-full py-16 px-5 ${className?.container}`}>
+    <section className={`w-full py-24 px-5 ${className?.container}`}>
       <div className={`w-full max-w-[1400px] mx-auto ${className?.content}`}>
         {children}
       </div>

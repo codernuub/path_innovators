@@ -1,10 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { RiMenu2Line, RiCloseLine } from "react-icons/ri";
 import { motion, AnimatePresence } from "framer-motion";
+
+import LogoImage from "@/assets/logo.png";
 
 const navItems = [
   { name: "home", href: "/" },
@@ -15,6 +18,15 @@ const navItems = [
 export default function Header() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLinkVariants = {
     hidden: { opacity: 0, y: -10 },
@@ -26,25 +38,29 @@ export default function Header() {
   };
 
   return (
-    <header className="w-full bg-white backdrop-blur-sm border-[#dfdfdf] fixed top-0 left-0 z-50">
-      <div className="w-full mx-auto px-5 py-4  container flex items-center justify-between">
+    <header
+      className={`fixed top-0 left-0 z-50 w-full transition-all duration-500 ${
+        scrolled ? "bg-gradient-to-r from-black/20 to-black/40 shadow-lg backdrop-blur-md" : "bg-transparent"
+      }`}
+    >
+      <div className="w-full mx-auto px-5 lg:px-0 py-3 container flex items-center justify-between">
         {/* Logo */}
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
         >
           <Link href="/">
-            <h1 className="text-xl sm:text-2xl leading-xl sm:leading-[2xl] font-semibold text-gray-800">
-              Path <span className="text-blue-600">InNoVaToRs</span>
-            </h1>
-            <span className="block text-[0.8rem] italic">
-              The Key to success
-            </span>
+            <Image
+              src={LogoImage}
+              className="w-[180px] lg:w-[220px] hover:scale-105 transition-transform duration-300"
+              alt="Path Innovators"
+            />
           </Link>
         </motion.div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-10 ml-auto">
           {navItems.map((item, i) => {
             const isActive = pathname === item.href;
             return (
@@ -57,17 +73,17 @@ export default function Header() {
               >
                 <Link
                   href={item.href}
-                  className={`relative font-lexend capitalize transition-colors duration-300 ${
+                  className={`relative font-lexend capitalize text-lg transition-all duration-300 ${
                     isActive
-                      ? "text-"
-                      : "text-blue hover:text-royalblue"
+                      ? "text-white font-semibold"
+                      : "text-white hover:text-blue-600 hover:scale-105"
                   }`}
                 >
                   {item.name}
                   {isActive && (
                     <motion.span
                       layoutId="underline"
-                      className="absolute left-0 right-0 bottom-[-4px] h-[2px] bg-royalblue rounded-full"
+                      className="absolute left-0 right-0 bottom-[-4px] h-[2px] bg-blue-600 rounded-full"
                     />
                   )}
                 </Link>
@@ -79,7 +95,7 @@ export default function Header() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="text-gray-700 text-2xl lg:hidden"
+          className="text-white text-2xl lg:hidden hover:scale-110 transition-transform duration-300"
         >
           {isOpen ? <RiCloseLine size={28} /> : <RiMenu2Line size={25} />}
         </button>
@@ -89,29 +105,27 @@ export default function Header() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -15 }}
+            initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -15 }}
+            exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden bg-white border-t shadow-sm"
+            className="lg:hidden bg-gradient-to-b from-blue-900/90 to-blue-700/90 border-t shadow-lg backdrop-blur-md"
           >
-            <nav className="flex flex-col items-start p-4 space-y-5">
-              {navItems.map((item) => {
+            <nav className="flex flex-col items-center p-6 space-y-6">
+              {navItems.map((item, i) => {
                 const isActive = pathname === item.href;
                 return (
                   <motion.div
                     key={item.name}
-                    initial={{ opacity: 0, x: -10 }}
+                    initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.2 }}
+                    transition={{ duration: 0.3, delay: i * 0.1 }}
                   >
                     <Link
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className={`block font-medium font-lexend capitalize transition-colors duration-300 ${
-                        isActive
-                          ? "text-royalblue"
-                          : "text-gray-700 hover:text-royalblue"
+                      className={`text-white text-lg font-semibold capitalize transition-colors duration-300 ${
+                        isActive ? "text-blue-600" : "hover:text-blue-600"
                       }`}
                     >
                       {item.name}

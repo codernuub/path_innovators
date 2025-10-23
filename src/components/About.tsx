@@ -31,10 +31,10 @@ export function ImageCard({
       className="relative inline-block shrink-0"
     >
       {/* Blue background card (consistent ratio) */}
-      <div className="absolute inset-0 translate-x-4 translate-y-4 max-h-[470px] bg-blue-600 rounded-lg -z-10" />
+      <div className="absolute inset-0 translate-x-4 translate-y-4 max-w-[470px] max-h-[470px] bg-blue-600 rounded-lg -z-10" />
 
       {/* Image container */}
-      <div className="overflow-hidden rounded-lg shadow-xl">
+      <div className="overflow-hidden rounded-lg shadow-xl w-fit h-fit">
         <Image
           src={image}
           alt={alt}

@@ -17,7 +17,16 @@ const config: Config = {
       colors:{
         main:"#009900",
         secondary:"#0E1A2B"
-      }
+      },
+      keyframes: {
+        shine: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
+      },
+      animation: {
+        shine: 'shine 2s linear infinite',
+      },
     },
   },
   plugins: [],
