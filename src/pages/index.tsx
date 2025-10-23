@@ -51,7 +51,9 @@ export default function Home() {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             className="italic text-[1.25rem] lg:text-[2rem] max-w-3xl text-white"
           >
-            Where <span className="underline">innovation</span> meets <span className="underline">excellence</span>
+            Driven by passion and excellence to
+            deliver innovative solutions that transform industries and empower
+            businesses worldwide.
           </motion.p>
         
         </div>
