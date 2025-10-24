@@ -5,6 +5,7 @@ import { Montserrat, Poppins, Raleway, Lexend } from "next/font/google";
 import ScrollToTop from "@/components/ScrollToTop";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import HoverContact from "@/components/HoverContact";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -36,6 +37,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       <Component {...pageProps} />
       <Footer/>
       <ScrollToTop />
+      <HoverContact/>
     </main>
   );
 }
