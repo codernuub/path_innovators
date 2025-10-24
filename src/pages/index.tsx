@@ -37,15 +37,6 @@ export default function Home() {
           >
             Path <span className="text-blue-600">InNoVaTors</span>
           </motion.h1>
-
-          {/*<Link href="/">
-            <Image
-              src={LogoImage}
-              className="w-[180px] lg:w-[300px] hover:scale-105 transition-transform duration-300"
-              alt="Path Innovators"
-            />
-          </Link>*/}
-
           <motion.p
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -62,6 +53,7 @@ export default function Home() {
       </VideoBanner>
 
       <VisionSection
+        id="about"
         heading="About Us"
          className={{
           container: "text-secondary",
@@ -164,6 +156,7 @@ possible service"
         ]}
       />
       <HistorySection />
+    
 
       <Quote
         quote="“Success Isn't Just About What You

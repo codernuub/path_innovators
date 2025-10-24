@@ -11,8 +11,8 @@ import LogoImage from "@/assets/logo.png";
 
 const navItems = [
   { name: "home", href: "/" },
-  { name: "about", href: "/about" },
-  { name: "services", href: "/#services" },
+  { name: "about", href: "/#about" },
+  { name: "services", href: "/services" },
 ];
 
 export default function Header() {

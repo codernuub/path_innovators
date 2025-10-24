@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import { motion } from "framer-motion";
 import { RiCheckboxCircleLine } from "react-icons/ri";
 
@@ -7,7 +7,8 @@ import { StaticImageData } from "next/image";
 import { ImageCard } from "./About";
 import { MainSection } from "./Main";
 
-interface VisionSectionProps {
+interface VisionSectionProps extends PropsWithChildren {
+  id?:string;
   image:StaticImageData;
   heading: string;
   subheading?: string;
@@ -25,15 +26,17 @@ interface VisionSectionProps {
 }
 
 const VisionSection: React.FC<VisionSectionProps> = ({
+  id,
   image,
   heading,
   subheading,
   description,
   points,
   className,
+  children
 }) => {
   return (
-    <MainSection className={{ container: className?.container }}>
+    <MainSection id={id} className={{ container: className?.container }}>
       <div className={`w-full  flex gap-20 flex-col lg:flex-row ${className?.body}`}>
         <ImageCard image={image} alt={heading} />
 
@@ -89,6 +92,7 @@ const VisionSection: React.FC<VisionSectionProps> = ({
               </li>
             ))}
           </motion.ul>:null}
+          {children}
     </MainSection>
   );
 };

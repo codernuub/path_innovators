@@ -31,9 +31,8 @@ export default function Footer() {
           <ul className="space-y-2 text-sm">
             {[
               { name: "Home", href: "/" },
-              { name: "About", href: "/about" },
-              { name: "Services", href: "/#services" },
-              { name: "Contact", href: "/contact" },
+              { name: "About", href: "/#about" },
+              { name: "Services", href: "/services" }
             ].map((item) => (
               <li key={item.name}>
                 <Link
@@ -52,13 +51,30 @@ export default function Footer() {
           <h3 className="text-lg font-semibold text-white mb-3">Services</h3>
           <ul className="space-y-2 text-sm">
             {[
-              { name: "IT Solutions", href: "/services/it" },
-              { name: "Tourism & Travel", href: "/services/tourism" },
               {
-                name: "Digital Marketing",
-                href: "/services/digital-marketing",
+                name: "Design Services",
+                href: "/services#design-services",
               },
-              { name: "Corporate Training", href: "/services/training" },
+              {
+                name: "Training & Education",
+                href: "/services#training-&-education",
+              },
+              {
+                name: "Consultations",
+                href: "/services#consultations",
+              },
+              {
+                name: "Recruitments",
+                href: "/services#recruitments",
+              },
+              {
+                name: "Tourism",
+                href: "/services#tourism",
+              },
+              {
+                name: "Marketing",
+                href: "/services#marketing",
+              },
             ].map((service) => (
               <li key={service.name}>
                 <Link
@@ -113,7 +129,7 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-gray-700 mt-12 pt-6 text-center text-gray-400 text-sm">
         <p>
-          © {new Date().getFullYear()} Path InNoVaToRs. All rights reserved.
+          © {new Date().getFullYear()} Path InNoVaToRs. All rights reserved. Designed and Developed by <Link className="underline" href={"https://Zhanas.in"}>Zhanas Software Solutions LLP</Link>.
         </p>
       </div>
     </motion.footer>

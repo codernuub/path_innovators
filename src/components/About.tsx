@@ -38,7 +38,7 @@ export function ImageCard({
         <Image
           src={image}
           alt={alt}
-          className="w-full max-w-[470px] h-auto object-cover"
+          className="w-full max-w-[470px] aspect-square h-auto object-cover"
           priority
         />
       </div>

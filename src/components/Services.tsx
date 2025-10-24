@@ -23,7 +23,7 @@ export default function OurServices() {
       title: "Training & Education",
       subheading:
         "Empowering Businesses with Digital Marketing Training and Education",
-      href: "/services#training-and-education",
+      href: "/services#training-&-education",
       image:TrainingImage
     },
     {
