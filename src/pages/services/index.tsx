@@ -5,7 +5,7 @@ import { VideoBanner } from "@/components/Banner";
 import ServiceDetails from "@/components/Service";
 import VisionSection from "@/components/Vision";
 
-import Banner1Image from "@/assets/banner/working.webm";
+import Banner1Image from "@/assets/banner/service.webm";
 import ServicesImage from "@/assets/services/services.jpg";
 
 import S1T1 from "@/assets/services/1/logo-design.jpg";
