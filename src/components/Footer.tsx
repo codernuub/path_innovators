@@ -127,7 +127,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-gray-700 mt-12 pt-6 text-center text-gray-400 text-sm">
+      <div className="border-t border-gray-700 mt-12 pt-6 text-center text-gray-400 text-xs font-[300]">
         <p>
           © {new Date().getFullYear()} Path InNoVaToRs. All rights reserved. Designed and Developed by <Link className="underline" href={"https://Zhanas.in"}>Zhanas Software Solutions LLP</Link>.
         </p>

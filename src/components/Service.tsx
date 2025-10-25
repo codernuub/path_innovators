@@ -6,7 +6,7 @@ import { RiPhoneFill, RiWhatsappFill } from "react-icons/ri";
 
 import { MainSection } from "./Main";
 
-import PlaceholderImg from "@/assets/home/about.png"; // replace with your image
+import PlaceholderImg from "@/assets/home/about.webp"; // replace with your image
 
 interface ServiceType {
   title: string;
