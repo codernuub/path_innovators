@@ -4,19 +4,19 @@ import Head from "next/head";
 import { motion } from "framer-motion";
 
 import { VideoBanner } from "@/components/Banner";
-
-import Banner1Image from "@/assets/banner/banner.mp4";
-import AboutImage from "@/assets/about.png";
 import Quote from "@/components/Quote";
 import HistorySection from "@/components/HistorySection";
 import Milestones from "@/components/Milestones";
 import VisionSection from "@/components/Vision";
 
-import VisionImage from "@/assets/vision.png";
-import MissionImage from "@/assets/misson.png"
 import CompanyValues from "@/components/CompanyValues";
 import OurValues from "@/components/OurValues";
 import OurServices from "@/components/Services";
+
+import Banner1Image from "@/assets/banner/banner.mp4";
+import AboutImage from "@/assets/home/about.webp";
+import VisionImage from "@/assets/home/vision.webp";
+import MissionImage from "@/assets/home/mission.webp"
 
 export default function Home() {
   return (

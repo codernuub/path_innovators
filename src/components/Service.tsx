@@ -1,11 +1,12 @@
 "use client";
-
-import { motion } from "framer-motion";
-import Image, { StaticImageData } from "next/image";
-import PlaceholderImg from "@/assets/about.png"; // replace with your image
-import { MainSection } from "./Main";
-import { RiPhoneFill, RiWhatsappFill } from "react-icons/ri";
 import Link from "next/link";
+import Image, { StaticImageData } from "next/image";
+import { motion } from "framer-motion";
+import { RiPhoneFill, RiWhatsappFill } from "react-icons/ri";
+
+import { MainSection } from "./Main";
+
+import PlaceholderImg from "@/assets/home/about.png"; // replace with your image
 
 interface ServiceType {
   title: string;
