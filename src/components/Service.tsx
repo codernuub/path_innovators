@@ -7,6 +7,7 @@ import { RiPhoneFill, RiWhatsappFill } from "react-icons/ri";
 import { MainSection } from "./Main";
 
 import PlaceholderImg from "@/assets/home/about.webp"; // replace with your image
+import { CONTACT_INFO } from "@/utils/contact";
 
 interface ServiceType {
   title: string;
@@ -21,7 +22,7 @@ interface ServiceDetailsProps {
   types: ServiceType[];
   className?: {
     container?: string;
-  }
+  };
 }
 
 const gradients = [
@@ -37,10 +38,13 @@ export default function ServiceDetails({
   subheading,
   description,
   types,
-  className
+  className,
 }: ServiceDetailsProps) {
   return (
-    <MainSection id={name.split(" ").join("-").toLowerCase()} className={{ container: className?.container }}>
+    <MainSection
+      id={name.split(" ").join("-").toLowerCase()}
+      className={{ container: className?.container }}
+    >
       <div className="w-full">
         {/* Top Section */}
         <motion.div
@@ -55,13 +59,14 @@ export default function ServiceDetails({
           <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
             {description}
           </p>
-          <h4 className="text-center font-semibold mt-10">Our Services Includes</h4>
+          <h4 className="text-center font-semibold mt-10">
+            Our Services Includes
+          </h4>
         </motion.div>
         {/* Service Types */}
         <div className="flex flex-col flex-wrap md:flex-row justify-center gap-10">
           {types.map((type, index) => {
-            const gradient =
-              gradients[index % gradients.length]; // pick different gradient each card
+            const gradient = gradients[index % gradients.length]; // pick different gradient each card
 
             return (
               <motion.div
@@ -91,10 +96,12 @@ export default function ServiceDetails({
                     {type.description}
                   </p>
                   <div className="relative z-10 flex gap-4 text-white mt-auto ml-auto">
-                    <Link href="tel:+919885786628">
+                    <Link href={`tel:${CONTACT_INFO.phone.value}`}>
                       <RiPhoneFill size={20} />
                     </Link>
-                    <Link href={`https://wa.me/${9885786628}?text=I want to enquire about ${type.title} service`}>
+                    <Link
+                      href={`https://wa.me/${CONTACT_INFO.whatsapp}?text=I want to enquire about ${type.title} service`}
+                    >
                       <RiWhatsappFill size={20} />
                     </Link>
                   </div>

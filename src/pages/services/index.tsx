@@ -1,4 +1,6 @@
 import Head from "next/head";
+import Link from "next/link";
+import { CONTACT_INFO } from "@/utils/contact";
 import { motion } from "framer-motion";
 
 import { VideoBanner } from "@/components/Banner";
@@ -25,6 +27,7 @@ import S6T1 from "@/assets/services/6/s6t1.jpg";
 import S6T2 from "@/assets/services/6/s6t2.jpg";
 import S6T3 from "@/assets/services/6/s6t3.jpg";
 import S6T4 from "@/assets/services/6/s6t4.jpg";
+
 
 export default function Services() {
   return (
@@ -54,16 +57,18 @@ export default function Services() {
               designed to empower businesses and individuals to achieve their
               goals.
             </motion.p>
+            <Link href={`https://wa.me/${CONTACT_INFO.whatsapp}`}>
               <motion.button
-              initial={{ scale: 1 }}
-              whileHover={{
-                scale: 1.1,
-              }}
-              transition={{ type: "spring", stiffness: 300 }}
-              className="mt-8 bg-blue-600 rounded-md py-3 px-6 font-semibold text-white text-base"
-            >
-              Enquire Now
-            </motion.button>
+                initial={{ scale: 1 }}
+                whileHover={{
+                  scale: 1.1,
+                }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="mt-8 bg-blue-600 rounded-md py-3 px-6 font-semibold text-white text-base"
+              >
+                Enquire Now
+              </motion.button>
+            </Link>
           </div>
         </div>
       </VideoBanner>

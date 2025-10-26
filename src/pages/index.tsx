@@ -17,6 +17,8 @@ import Banner1Image from "@/assets/banner/banner.mp4";
 import AboutImage from "@/assets/home/about.webp";
 import VisionImage from "@/assets/home/vision.webp";
 import MissionImage from "@/assets/home/mission.webp";
+import Link from "next/link";
+import { CONTACT_INFO } from "@/utils/contact";
 
 export default function Home() {
   return (
@@ -46,6 +48,7 @@ export default function Home() {
               Driven by passion and excellence to deliver innovative solutions
               that transform industries and empower businesses worldwide.
             </motion.p>
+            <Link href={`https://wa.me/${CONTACT_INFO.whatsapp}`}>
             <motion.button
               initial={{ scale: 1 }}
               whileHover={{
@@ -56,6 +59,7 @@ export default function Home() {
             >
               Enquire Now
             </motion.button>
+            </Link>
           </div>
         </div>
       </VideoBanner>

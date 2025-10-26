@@ -1,4 +1,5 @@
 "use client";
+import { CONTACT_INFO } from "@/utils/contact";
 import { PAGE_LINKS, SERVICE_LINKS } from "@/utils/nav";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -61,21 +62,21 @@ export default function Footer() {
             <li className="flex items-start gap-2">
               <FaMapMarkerAlt className="text-blue-500 mt-1" />
               <a
-                href="https://maps.google.com/?q=123+Innovation+Street,+Tech+City,+India"
+                href={CONTACT_INFO.address.value}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-blue-400 transition-colors duration-200"
               >
-                Red hills, Hyderabad, Telangana
+                {CONTACT_INFO.address.label}
               </a>
             </li>
             <li className="flex items-start gap-2">
               <FaPhoneAlt className="text-blue-500 mt-1" />
               <a
-                href="tel:+919885786628"
+                href={`tel:${CONTACT_INFO.phone.value}`}
                 className="hover:text-blue-400 transition-colors duration-200"
               >
-                +91 98857 86628
+                {CONTACT_INFO.phone.label}
               </a>
             </li>
             <li className="flex items-start gap-2">
@@ -84,7 +85,7 @@ export default function Footer() {
                 href="mailto:smartrj2012@gmail.com"
                 className="hover:text-blue-400 transition-colors duration-200"
               >
-                smartrj2012@gmail.com
+                {CONTACT_INFO.email}
               </a>
             </li>
           </ul>
