@@ -30,7 +30,7 @@ export default function Services() {
   return (
     <>
       <Head>
-        <title>Services | Path Innovator</title>
+        <title>Services | Path InNoVaToRs</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <VideoBanner image={Banner1Image} title="">
@@ -54,6 +54,16 @@ export default function Services() {
               designed to empower businesses and individuals to achieve their
               goals.
             </motion.p>
+              <motion.button
+              initial={{ scale: 1 }}
+              whileHover={{
+                scale: 1.1,
+              }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="mt-8 bg-blue-600 rounded-md py-3 px-6 font-semibold text-white text-base"
+            >
+              Enquire Now
+            </motion.button>
           </div>
         </div>
       </VideoBanner>

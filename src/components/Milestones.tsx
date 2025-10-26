@@ -30,6 +30,22 @@ businesses to navigate the digital landscape effectively, leverage online platfo
 and achieve their marketing goals.
 `,
   },
+    {
+    year: "2024",
+    icon: <span className="font-bold text-[1.5rem]">M4</span>,
+    text: `A year of transformation and innovation. We introduced design and branding
+solutions, helping businesses establish stronger identities and visual presence.
+From creative campaigns to brand storytelling, our team focused on crafting
+meaningful designs that inspire engagement and trust.`,
+  },
+  {
+    year: "2025",
+    icon: <span className="font-bold text-[1.5rem]">M5</span>,
+    text: `A new era of integration and technology. We embraced automation and AI-driven
+solutions across our services — from recruitment analytics to digital marketing
+optimization. Our mission continues: to connect people, businesses, and ideas
+through innovation, creativity, and human expertise.`,
+  },
 ];
 
 export default function Milestones() {

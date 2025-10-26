@@ -1,7 +1,34 @@
 "use client";
+import { PAGE_LINKS, SERVICE_LINKS } from "@/utils/nav";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+
+function QuickLinksBlock({
+  heading,
+  links,
+}: {
+  heading?: string;
+  links: { name: string; href: string }[];
+}) {
+  return (
+    <div>
+      <h3 className="text-lg font-semibold text-white mb-3">{heading}</h3>
+      <ul className="space-y-2 text-sm">
+        {links.map((link) => (
+          <li key={link.name}>
+            <Link
+              href={link.href}
+              className="hover:text-blue-400 transition-colors duration-200"
+            >
+              {link.name}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 export default function Footer() {
   return (
@@ -10,7 +37,7 @@ export default function Footer() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: true }}
-      className="w-full bg-[#0b1120] text-gray-300 font-montserrat pt-16 pb-8"
+      className="w-full bg-[#0b1120] text-gray-300 font-montserrat pt-16 pb-4"
     >
       <div className="max-w-[1600px] mx-auto px-6 lg:px-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         {/* Company Info */}
@@ -25,69 +52,8 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Quick Links */}
-        <div>
-          <h3 className="text-lg font-semibold text-white mb-3">Quick Links</h3>
-          <ul className="space-y-2 text-sm">
-            {[
-              { name: "Home", href: "/" },
-              { name: "About", href: "/#about" },
-              { name: "Services", href: "/services" }
-            ].map((item) => (
-              <li key={item.name}>
-                <Link
-                  href={item.href}
-                  className="hover:text-blue-400 transition-colors duration-200"
-                >
-                  {item.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Services */}
-        <div>
-          <h3 className="text-lg font-semibold text-white mb-3">Services</h3>
-          <ul className="space-y-2 text-sm">
-            {[
-              {
-                name: "Design Services",
-                href: "/services#design-services",
-              },
-              {
-                name: "Training & Education",
-                href: "/services#training-&-education",
-              },
-              {
-                name: "Consultations",
-                href: "/services#consultations",
-              },
-              {
-                name: "Recruitments",
-                href: "/services#recruitments",
-              },
-              {
-                name: "Tourism",
-                href: "/services#tourism",
-              },
-              {
-                name: "Marketing",
-                href: "/services#marketing",
-              },
-            ].map((service) => (
-              <li key={service.name}>
-                <Link
-                  href={service.href}
-                  className="hover:text-blue-400 transition-colors duration-200"
-                >
-                  {service.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
+        <QuickLinksBlock heading="Pages" links={PAGE_LINKS} />
+        <QuickLinksBlock heading="Services" links={SERVICE_LINKS} />
         {/* Contact Info */}
         <div>
           <h3 className="text-lg font-semibold text-white mb-3">Contact Us</h3>
@@ -100,8 +66,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="hover:text-blue-400 transition-colors duration-200"
               >
-                11-5-212/A, opposite Red Hills Polyclinic. Red hills, Hyderabad,
-                Telangana
+                Red hills, Hyderabad, Telangana
               </a>
             </li>
             <li className="flex items-start gap-2">
@@ -127,9 +92,13 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-gray-700 mt-12 pt-6 text-center text-gray-400 text-xs font-[300]">
+      <div className="border-t border-gray-700 mt-12 pt-4 text-center text-gray-400 text-sm font-[300]">
         <p>
-          © {new Date().getFullYear()} Path InNoVaToRs. All rights reserved. Designed and Developed by <Link className="underline" href={"https://Zhanas.in"}>Zhanas Software Solutions LLP</Link>.
+          © {new Date().getFullYear()}{" "}
+          <Link href={"/"} className="font-semibold">
+            Path InNoVaToRs
+          </Link>
+          . All rights reserved.
         </p>
       </div>
     </motion.footer>

@@ -16,49 +16,57 @@ import OurServices from "@/components/Services";
 import Banner1Image from "@/assets/banner/banner.mp4";
 import AboutImage from "@/assets/home/about.webp";
 import VisionImage from "@/assets/home/vision.webp";
-import MissionImage from "@/assets/home/mission.webp"
+import MissionImage from "@/assets/home/mission.webp";
 
 export default function Home() {
   return (
     <Fragment>
       <Head>
-        <title>Home | Path Innovator</title>
+        <title>Home | Path InNoVaToRs</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <VideoBanner image={Banner1Image} title="">
         <div className="absolute inset-0 z-40 flex justify-start mt-auto h-fit">
-        <div className="text-left px-5 py-8 lg:p-24">
-          <motion.h1
-            initial={{ opacity: 0, y: -40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-[2.2rem] md:text-[2.5rem] uppercase lg:text-[4rem] xl:text-[5rem] font-bold text-white leading-tight drop-shadow-lg"
-          >
-            Path <span className="text-blue-600">InNoVaTors</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            className="italic text-[1.25rem] lg:text-[2rem] max-w-3xl text-white"
-          >
-            Driven by passion and excellence to
-            deliver innovative solutions that transform industries and empower
-            businesses worldwide.
-          </motion.p>
-        
+          <div className="text-left px-5 py-8 lg:p-24">
+            <motion.h1
+              initial={{ opacity: 0, y: -40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="text-[2.2rem] md:text-[2.5rem] lg:text-[4rem] xl:text-[5rem] font-bold text-white leading-tight drop-shadow-lg"
+            >
+              Path <span className="text-blue-600">InNoVaTors</span>
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+              className="italic text-[1.25rem] lg:text-[2rem] max-w-3xl text-white"
+            >
+              Driven by passion and excellence to deliver innovative solutions
+              that transform industries and empower businesses worldwide.
+            </motion.p>
+            <motion.button
+              initial={{ scale: 1 }}
+              whileHover={{
+                scale: 1.1,
+              }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="mt-8 bg-blue-600 rounded-md py-3 px-6 font-semibold text-white text-base"
+            >
+              Enquire Now
+            </motion.button>
+          </div>
         </div>
-      </div>
       </VideoBanner>
 
       <VisionSection
         id="about"
         heading="About Us"
-         className={{
+        className={{
           container: "text-secondary",
           para: "text-secondary",
-          rightBody:"my-auto",
+          rightBody: "my-auto",
           li: {
             container: "!bg-secondary/10",
           },
@@ -73,9 +81,9 @@ export default function Home() {
           Business Man is — Put yourself
          in your Customer's Place.”"
       />
-      
-      <CompanyValues/>
-      <OurServices/>
+
+      <CompanyValues />
+      <OurServices />
       <VisionSection
         className={{
           container: "bg-secondary text-white",
@@ -107,8 +115,8 @@ clients overcome challenges and achieve remarkable success."
           },
         ]}
       />
-      
-      <OurValues/>
+
+      <OurValues />
       <VisionSection
         className={{
           container: "text-secondary",
@@ -117,7 +125,7 @@ clients overcome challenges and achieve remarkable success."
             container: "!bg-secondary/10",
           },
         }}
-         image={MissionImage}
+        image={MissionImage}
         heading="Our Mission"
         subheading="DELIVERING EXCEPTIONAL QUALITY SERVICE AND
 EMPOWERING SUCCESS"
@@ -156,7 +164,6 @@ possible service"
         ]}
       />
       <HistorySection />
-    
 
       <Quote
         quote="“Success Isn't Just About What You
