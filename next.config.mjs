@@ -18,9 +18,6 @@ const nextConfig = {
     unoptimized:true,
     remotePatterns: [
       {
-        hostname: "api.kisanhit.in",
-      },
-      {
         hostname: "localhost"
       },
       { 

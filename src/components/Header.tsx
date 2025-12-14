@@ -48,7 +48,7 @@ export default function Header() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <Link href="/">
+          <Link title={"Path Innovators"} href="/">
             <Image
               src={LogoImage}
               className="w-[180px] lg:w-[220px] hover:scale-105 transition-transform duration-300"
@@ -76,6 +76,7 @@ export default function Header() {
                   onMouseLeave={() => setServiceOpen(false)}
                 >
                   <Link
+                    title={item.name}
                     href={item.href}
                     className={`flex items-center gap-1 relative font-lexend capitalize text-md transition-all duration-300 ${
                       isActive
@@ -107,6 +108,7 @@ export default function Header() {
                       >
                         {SERVICE_LINKS.map((service) => (
                           <Link
+                            title={service.name}
                             key={service.name}
                             href={service.href}
                             className="text-gray-700 hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-md transition-all duration-200"
@@ -131,6 +133,7 @@ export default function Header() {
                 variants={navLinkVariants}
               >
                 <Link
+                  title={item.name}
                   href={item.href}
                   className={`relative font-lexend capitalize text-md transition-all duration-300 ${
                     isActive
@@ -170,7 +173,7 @@ export default function Header() {
             transition={{ duration: 0.3 }}
             className="lg:hidden bg-gradient-to-b from-blue-900/95 to-blue-700/90 border-t shadow-lg backdrop-blur-md"
           >
-            <nav className="flex flex-col items-start p-6 space-y-5">
+            <nav className="flex flex-col items-start p-6 space-y-5" aria-label="Header Navigation">
               {PAGE_LINKS.map((item, i) => {
                 const isActive = pathname === item.href;
 
@@ -182,7 +185,7 @@ export default function Header() {
                         onClick={() => setMobileServiceOpen(!mobileServiceOpen)}
                         className="flex justify-between w-full text-white text-lg font-semibold capitalize"
                       >
-                        <Link href={item.href} onClick={() => setIsOpen(false)}>
+                        <Link title={item.name} href={item.href} onClick={() => setIsOpen(false)}>
                           {item.name}
                         </Link>
                         <RiArrowDownSLine
@@ -202,6 +205,7 @@ export default function Header() {
                           >
                             {SERVICE_LINKS.map((service) => (
                               <Link
+                                title={service.name}
                                 key={service.name}
                                 href={service.href}
                                 onClick={() => setIsOpen(false)}
@@ -226,6 +230,7 @@ export default function Header() {
                     transition={{ duration: 0.3, delay: i * 0.1 }}
                   >
                     <Link
+                      title={item.name}
                       href={item.href}
                       onClick={() => setIsOpen(false)}
                       className={`block text-lg font-semibold capitalize transition-colors duration-300 ${

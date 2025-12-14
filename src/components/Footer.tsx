@@ -3,7 +3,24 @@ import { CONTACT_INFO } from "@/utils/contact";
 import { PAGE_LINKS, SERVICE_LINKS } from "@/utils/nav";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import {
+  FaPhoneAlt,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaFacebook,
+  FaInstagram,
+  FaLinkedinIn,
+  FaTwitter,
+  FaYoutube,
+} from "react-icons/fa";
+
+const MediaIcons = {
+  facebook: FaFacebook,
+  instagram: FaInstagram,
+  linkedin: FaLinkedinIn,
+  twitter: FaTwitter,
+  youtube: FaYoutube,
+};
 
 function QuickLinksBlock({
   heading,
@@ -13,12 +30,13 @@ function QuickLinksBlock({
   links: { name: string; href: string }[];
 }) {
   return (
-    <div>
+    <nav aria-label="Footer Navigation">
       <h3 className="text-lg font-semibold text-white mb-3">{heading}</h3>
       <ul className="space-y-2 text-sm">
         {links.map((link) => (
           <li key={link.name}>
             <Link
+              title={link.name}
               href={link.href}
               className="hover:text-blue-400 transition-colors duration-200"
             >
@@ -27,7 +45,7 @@ function QuickLinksBlock({
           </li>
         ))}
       </ul>
-    </div>
+    </nav>
   );
 }
 
@@ -51,17 +69,40 @@ export default function Footer() {
             deliver innovative solutions that transform industries and empower
             businesses worldwide.
           </p>
+          <div
+            className="flex items-center gap-4 mt-6"
+            itemScope
+            itemType="http://schema.org/Organization"
+          >
+            <link itemProp="url" href="http://rgkcropscience.in" />
+            {CONTACT_INFO.socialLinks.map((media, index) => {
+              const Icon = MediaIcons[media.id as keyof typeof MediaIcons];
+              return media.link ? (
+                <a
+                  key={index}
+                  href={media.link}
+                  className="p-3 rounded-full bg-white/10 hover:bg-blue-600 hover:text-white transition-all"
+                  aria-label={media.id}
+                  title={media.id}
+                  itemProp="sameAs"
+                >
+                  {<Icon />}
+                </a>
+              ) : null;
+            })}
+          </div>
         </div>
 
         <QuickLinksBlock heading="Pages" links={PAGE_LINKS} />
         <QuickLinksBlock heading="Services" links={SERVICE_LINKS} />
         {/* Contact Info */}
-        <div>
+        <nav aria-label="Footer Navigation">
           <h3 className="text-lg font-semibold text-white mb-3">Contact Us</h3>
           <ul className="space-y-3 text-sm">
             <li className="flex items-start gap-2">
               <FaMapMarkerAlt className="text-blue-500 mt-1" />
               <a
+                title="Address"
                 href={CONTACT_INFO.address.value}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -73,6 +114,7 @@ export default function Footer() {
             <li className="flex items-start gap-2">
               <FaPhoneAlt className="text-blue-500 mt-1" />
               <a
+                title="Phone Number"
                 href={`tel:${CONTACT_INFO.phone.value}`}
                 className="hover:text-blue-400 transition-colors duration-200"
               >
@@ -82,6 +124,7 @@ export default function Footer() {
             <li className="flex items-start gap-2">
               <FaEnvelope className="text-blue-500 mt-1" />
               <a
+                title="Email"
                 href="mailto:smartrj2012@gmail.com"
                 className="hover:text-blue-400 transition-colors duration-200"
               >
@@ -89,14 +132,14 @@ export default function Footer() {
               </a>
             </li>
           </ul>
-        </div>
+        </nav>
       </div>
 
       {/* Bottom Bar */}
       <div className="border-t border-gray-700 mt-12 pt-4 text-center text-gray-400 text-sm font-[300]">
         <p>
           © {new Date().getFullYear()}{" "}
-          <Link href={"/"} className="font-semibold">
+          <Link href={"/"} title="Path Innovators" className="font-semibold">
             Path InNoVaToRs
           </Link>
           . All rights reserved.

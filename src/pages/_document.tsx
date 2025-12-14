@@ -4,7 +4,6 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        {/* Global defaults */}
         <meta
           name="description"
           content="Driven by passion and excellence, Path InNoVaTors delivers innovative solutions that transform industries and empower businesses worldwide. Explore our cutting-edge services and visionary approach."
